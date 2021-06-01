@@ -9,8 +9,8 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
-	"github.com/rfjakob/gocryptfs/tests/test_helpers"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/tests/test_helpers"
 )
 
 func TestOpenBackingDir(t *testing.T) {

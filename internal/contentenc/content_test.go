@@ -3,7 +3,7 @@ package contentenc
 import (
 	"testing"
 
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
 )
 
 type testRange struct {

@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 var testPw = []byte("test")

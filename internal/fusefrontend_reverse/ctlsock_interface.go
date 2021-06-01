@@ -6,8 +6,8 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/rfjakob/gocryptfs/internal/ctlsocksrv"
-	"github.com/rfjakob/gocryptfs/internal/pathiv"
+	"github.com/HorizonLiu/gocryptfs/internal/ctlsocksrv"
+	"github.com/HorizonLiu/gocryptfs/internal/pathiv"
 )
 
 // Verify that the interface is implemented.

@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/rfjakob/gocryptfs/tests/test_helpers"
+	"github.com/HorizonLiu/gocryptfs/tests/test_helpers"
 )
 
 func TestBrokenContent(t *testing.T) {

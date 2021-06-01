@@ -1,7 +1,7 @@
 package fusefrontend_reverse
 
 import (
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
 )
 
 type IgnoreParserMock struct {

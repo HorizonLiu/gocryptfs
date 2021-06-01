@@ -11,8 +11,8 @@ import (
 
 	"golang.org/x/crypto/ssh/terminal"
 
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const (

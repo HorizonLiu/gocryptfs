@@ -10,11 +10,11 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/rfjakob/eme"
+	"github.com/HorizonLiu/eme"
 
-	"github.com/rfjakob/gocryptfs/internal/siv_aead"
-	"github.com/rfjakob/gocryptfs/internal/stupidgcm"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/siv_aead"
+	"github.com/HorizonLiu/gocryptfs/internal/stupidgcm"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const (

@@ -1,5 +1,5 @@
 % GOCRYPTFS(1)
-% github.com/rfjakob
+% github.com/HorizonLiu
 % Aug 2017
 
 NAME
@@ -297,7 +297,7 @@ option gives users the choice to trade robustness against
 out-of-space errors for a massive speedup.
 
 For benchmarks and more details of the issue see
-https://github.com/rfjakob/gocryptfs/issues/63 .
+https://github.com/HorizonLiu/gocryptfs/issues/63 .
 
 #### -nosuid
 See `-suid, -nosuid`.
@@ -330,7 +330,7 @@ The ordering requires gocryptfs to wait a certain time before
 submitting a read. The serialization introduces extra locking.
 These factors will limit throughput to below 70MB/s.
 
-For more details visit https://github.com/rfjakob/gocryptfs/issues/92 .
+For more details visit https://github.com/HorizonLiu/gocryptfs/issues/92 .
 
 #### -sharedstorage
 Enable work-arounds so gocryptfs works better when the backing
@@ -354,7 +354,7 @@ gocryptfs on shared storage does not receive as much testing as the
 usual (exclusive) use-case. Please test your workload in advance
 and report any problems you may hit.
 
-More info: https://github.com/rfjakob/gocryptfs/issues/156
+More info: https://github.com/HorizonLiu/gocryptfs/issues/156
 
 #### -suid, -nosuid
 Enable (`-suid`) or disable (`-nosuid`) suid and sgid executables in a gocryptfs
@@ -612,7 +612,7 @@ EXIT CODES
 26: fsck found errors  
 other: please check the error message
 
-See also: https://github.com/rfjakob/gocryptfs/blob/master/internal/exitcodes/exitcodes.go
+See also: https://github.com/HorizonLiu/gocryptfs/blob/master/internal/exitcodes/exitcodes.go
 
 SEE ALSO
 ========

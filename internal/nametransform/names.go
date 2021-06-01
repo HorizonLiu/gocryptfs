@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/rfjakob/eme"
+	"github.com/HorizonLiu/eme"
 
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const (
@@ -119,7 +119,7 @@ func (n *NameTransform) decryptName(cipherName string, iv []byte) (string, error
 }
 
 // EncryptName encrypts "plainName", returns a base64-encoded "cipherName64",
-// encrypted using EME (https://github.com/rfjakob/eme).
+// encrypted using EME (https://github.com/HorizonLiu/eme).
 //
 // This function is exported because in some cases, fusefrontend needs access
 // to the full (not hashed) name if longname is used.

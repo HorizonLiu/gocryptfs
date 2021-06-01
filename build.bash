@@ -76,7 +76,7 @@ if [[ -z ${GOFLAGS:-} ]] ; then
 	fi
 	# Also, Fedora and Arch want pie enabled, so enable it.
 	# * https://fedoraproject.org/wiki/Changes/golang-buildmode-pie
-	# * https://github.com/rfjakob/gocryptfs/pull/460
+	# * https://github.com/HorizonLiu/gocryptfs/pull/460
 	# But not with CGO_ENABLED=0 (https://github.com/golang/go/issues/30986)!
 	if [[ ${CGO_ENABLED:-1} -ne 0 ]] ; then
 		GOFLAGS="$GOFLAGS -buildmode=pie"

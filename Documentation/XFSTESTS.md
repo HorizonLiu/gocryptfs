@@ -1,6 +1,6 @@
 # xfstests results
 
-Results of running [fuse-xfstests](https://github.com/rfjakob/fuse-xfstests)
+Results of running [fuse-xfstests](https://github.com/HorizonLiu/fuse-xfstests)
 against gocryptfs.
 
 ## Failures

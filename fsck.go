@@ -14,10 +14,10 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/fusefrontend"
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/fusefrontend"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 type fsckObj struct {

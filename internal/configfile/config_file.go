@@ -12,10 +12,10 @@ import (
 
 	"os"
 
-	"github.com/rfjakob/gocryptfs/internal/contentenc"
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/contentenc"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const (
@@ -206,10 +206,10 @@ func Load(filename string) (*ConfFile, error) {
     The filesystem was created by gocryptfs v0.6 or earlier. This version of
     gocryptfs can no longer mount the filesystem.
     Please download gocryptfs v0.11 and upgrade your filesystem,
-    see https://github.com/rfjakob/gocryptfs/wiki/Upgrading for instructions.
+    see https://github.com/HorizonLiu/gocryptfs/wiki/Upgrading for instructions.
 
     If you have trouble upgrading, join the discussion at
-    https://github.com/rfjakob/gocryptfs/issues/29 .
+    https://github.com/HorizonLiu/gocryptfs/issues/29 .
 
 `+tlog.ColorReset)
 
@@ -295,7 +295,7 @@ func (cf *ConfFile) WriteFile() error {
 	err = fd.Sync()
 	if err != nil {
 		// This can happen on network drives: FRITZ.NAS mounted on MacOS returns
-		// "operation not supported": https://github.com/rfjakob/gocryptfs/issues/390
+		// "operation not supported": https://github.com/HorizonLiu/gocryptfs/issues/390
 		tlog.Warn.Printf("Warning: fsync failed: %v", err)
 		// Try sync instead
 		syscall.Sync()

@@ -1,4 +1,4 @@
-module github.com/rfjakob/gocryptfs
+module github.com/HorizonLiu/gocryptfs
 
 go 1.13
 
@@ -11,7 +11,6 @@ require (
 	github.com/jacobsa/ogletest v0.0.0-20170503003838-80d50a735a11 // indirect
 	github.com/jacobsa/reqtrace v0.0.0-20150505043853-245c9e0234cb // indirect
 	github.com/pkg/xattr v0.4.1
-	github.com/rfjakob/eme v1.1.1
 	github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94
 	github.com/stretchr/testify v1.5.1 // indirect
 	golang.org/x/crypto v0.0.0-20200429183012-4b2356b1ed79

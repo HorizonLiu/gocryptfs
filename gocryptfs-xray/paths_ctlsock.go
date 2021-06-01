@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rfjakob/gocryptfs/ctlsock"
+	"github.com/HorizonLiu/gocryptfs/ctlsock"
 )
 
 func decryptPaths(socketPath string, sep0 bool) {

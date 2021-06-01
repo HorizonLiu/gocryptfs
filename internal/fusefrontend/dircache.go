@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const (

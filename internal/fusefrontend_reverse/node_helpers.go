@@ -10,9 +10,9 @@ import (
 	"github.com/hanwen/go-fuse/v2/fs"
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/pathiv"
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/pathiv"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
 )
 
 const (

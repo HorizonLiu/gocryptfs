@@ -8,14 +8,14 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/fido2"
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
-	"github.com/rfjakob/gocryptfs/internal/readpassword"
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/fido2"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/readpassword"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // isEmptyDir checks if "dir" exists and is an empty directory.

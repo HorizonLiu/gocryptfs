@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rfjakob/gocryptfs/tests/test_helpers"
+	"github.com/HorizonLiu/gocryptfs/tests/test_helpers"
 )
 
 func TestDirIVRace(t *testing.T) {

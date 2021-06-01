@@ -8,13 +8,13 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/contentenc"
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/fido2"
-	"github.com/rfjakob/gocryptfs/internal/readpassword"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/contentenc"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/fido2"
+	"github.com/HorizonLiu/gocryptfs/internal/readpassword"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // GitVersion is the gocryptfs version according to git, set by build.bash

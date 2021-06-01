@@ -3,7 +3,7 @@ package gocryptfs
 import (
 	"fmt"
 
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 const tUsage = "" +

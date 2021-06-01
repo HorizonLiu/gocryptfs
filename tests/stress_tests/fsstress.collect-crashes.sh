@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/go/src/github.com/rfjakob/gocryptfs/tests/stress_tests || exit 1
+cd ~/go/src/github.com/HorizonLiu/gocryptfs/tests/stress_tests || exit 1
 export TMPDIR=/mnt/ext4-ramdisk
 # Check that TMPDIR is writeable
 touch "$TMPDIR/$$" || exit 1

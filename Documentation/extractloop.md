@@ -20,7 +20,7 @@ What the extractloop stress test does is (top comment in `tests/stress_tests/ext
 
 Test output (trimmed for brevity):
 ```
-~/go/src/github.com/rfjakob/gocryptfs/tests/stress_tests$ ./extractloop.bash
+~/go/src/github.com/HorizonLiu/gocryptfs/tests/stress_tests$ ./extractloop.bash
 
 20803 (process ID) old priority 0, new priority 19
 Testing gocryptfs

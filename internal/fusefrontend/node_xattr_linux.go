@@ -8,7 +8,7 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fs"
 
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
 )
 
 func filterXattrSetFlags(flags int) int {

@@ -3,7 +3,7 @@ package gocryptfs
 // Should be initialized before anything else.
 // This import line MUST be in the alphabitcally first source code file of
 // package main!
-import _ "github.com/rfjakob/gocryptfs/internal/ensurefds012"
+import _ "github.com/HorizonLiu/gocryptfs/internal/ensurefds012"
 
 import (
 	"flag"
@@ -16,10 +16,10 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/stupidgcm"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/stupidgcm"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // argContainer stores the parsed CLI options and arguments

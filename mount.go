@@ -25,16 +25,16 @@ import (
 	"github.com/hanwen/go-fuse/v2/fs"
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/contentenc"
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/ctlsocksrv"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/fusefrontend"
-	"github.com/rfjakob/gocryptfs/internal/fusefrontend_reverse"
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
-	"github.com/rfjakob/gocryptfs/internal/openfiletable"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/contentenc"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/ctlsocksrv"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/fusefrontend"
+	"github.com/HorizonLiu/gocryptfs/internal/fusefrontend_reverse"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/openfiletable"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // AfterUnmount is called after the filesystem has been unmounted.
@@ -72,7 +72,7 @@ func doMount(args *argContainer) {
 		err = isDir(args.mountpoint)
 	} else {
 		err = isEmptyDir(args.mountpoint)
-		// OSXFuse will create the mountpoint for us ( https://github.com/rfjakob/gocryptfs/issues/194 )
+		// OSXFuse will create the mountpoint for us ( https://github.com/HorizonLiu/gocryptfs/issues/194 )
 		if runtime.GOOS == "darwin" && os.IsNotExist(err) {
 			tlog.Info.Printf("Mountpoint %q does not exist, but should be created by OSXFuse",
 				args.mountpoint)
@@ -104,8 +104,8 @@ func doMount(args *argContainer) {
 			}
 		}()
 	}
-	// Preallocation on Btrfs is broken ( https://github.com/rfjakob/gocryptfs/issues/395 )
-	// and slow ( https://github.com/rfjakob/gocryptfs/issues/63 ).
+	// Preallocation on Btrfs is broken ( https://github.com/HorizonLiu/gocryptfs/issues/395 )
+	// and slow ( https://github.com/HorizonLiu/gocryptfs/issues/63 ).
 	if !args.noprealloc {
 		// darwin does not have unix.BTRFS_SUPER_MAGIC, so we define it here
 		const BTRFS_SUPER_MAGIC = 0x9123683e
@@ -114,7 +114,7 @@ func doMount(args *argContainer) {
 		// Cast to uint32 avoids compile error on arm: "constant 2435016766 overflows int32"
 		if err == nil && uint32(st.Type) == BTRFS_SUPER_MAGIC {
 			tlog.Info.Printf(tlog.ColorYellow +
-				"Btrfs detected, forcing -noprealloc. See https://github.com/rfjakob/gocryptfs/issues/395 for why." +
+				"Btrfs detected, forcing -noprealloc. See https://github.com/HorizonLiu/gocryptfs/issues/395 for why." +
 				tlog.ColorReset)
 			args.noprealloc = true
 		}

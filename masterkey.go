@@ -5,10 +5,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/exitcodes"
-	"github.com/rfjakob/gocryptfs/internal/readpassword"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/exitcodes"
+	"github.com/HorizonLiu/gocryptfs/internal/readpassword"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // unhexMasterKey - Convert a hex-encoded master key to binary.

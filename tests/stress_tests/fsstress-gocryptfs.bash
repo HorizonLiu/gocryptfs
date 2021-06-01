@@ -27,7 +27,7 @@ FSSTRESS=$HOME/fuse-xfstests/ltp/fsstress
 if [[ ! -x $FSSTRESS ]]
 then
 	echo "$MYNAME: fsstress binary not found at $FSSTRESS"
-	echo "Please clone and compile https://github.com/rfjakob/fuse-xfstests"
+	echo "Please clone and compile https://github.com/HorizonLiu/fuse-xfstests"
 	exit 1
 fi
 
@@ -59,7 +59,7 @@ if [[ $MYNAME = fsstress-loopback.bash ]]; then
 	disown
 elif [[ $MYNAME = fsstress-gocryptfs.bash ]]; then
 	echo "Recompile gocryptfs"
-	cd $GOPATH/src/github.com/rfjakob/gocryptfs
+	cd $GOPATH/src/github.com/HorizonLiu/gocryptfs
 	./build.bash # also prints the version
 	$GOPATH/bin/gocryptfs -q -init -extpass "echo test" -scryptn=10 $DIR
 	$GOPATH/bin/gocryptfs -q -extpass "echo test" -nosyslog -fusedebug=$DEBUG $DIR $MNT

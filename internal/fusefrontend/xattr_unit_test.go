@@ -9,9 +9,9 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fs"
 
-	"github.com/rfjakob/gocryptfs/internal/contentenc"
-	"github.com/rfjakob/gocryptfs/internal/cryptocore"
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/contentenc"
+	"github.com/HorizonLiu/gocryptfs/internal/cryptocore"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
 )
 
 func newTestFS(args Args) *RootNode {

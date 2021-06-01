@@ -11,8 +11,8 @@ import (
 
 	"github.com/hanwen/go-fuse/v2/fs"
 
-	"github.com/rfjakob/gocryptfs/internal/syscallcompat"
-	"github.com/rfjakob/gocryptfs/internal/tlog"
+	"github.com/HorizonLiu/gocryptfs/internal/syscallcompat"
+	"github.com/HorizonLiu/gocryptfs/internal/tlog"
 )
 
 // FALLOC_DEFAULT is a "normal" fallocate operation

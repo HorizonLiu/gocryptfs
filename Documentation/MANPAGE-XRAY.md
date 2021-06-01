@@ -1,5 +1,5 @@
 % GOCRYPTFS-XRAY(1)
-% github.com/rfjakob
+% github.com/HorizonLiu
 % Jan 2018
 
 NAME

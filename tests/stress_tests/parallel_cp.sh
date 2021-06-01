@@ -10,7 +10,7 @@
 #
 #   while sleep 0.1 ; do echo 3 > /proc/sys/vm/drop_caches ; done"
 #
-# See https://github.com/rfjakob/gocryptfs/issues/322 for details.
+# See https://github.com/HorizonLiu/gocryptfs/issues/322 for details.
 
 if [[ -z $TMPDIR ]]; then
 	TMPDIR=/var/tmp

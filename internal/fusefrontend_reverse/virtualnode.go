@@ -8,9 +8,9 @@ import (
 	"github.com/hanwen/go-fuse/v2/fs"
 	"github.com/hanwen/go-fuse/v2/fuse"
 
-	"github.com/rfjakob/gocryptfs/internal/configfile"
-	"github.com/rfjakob/gocryptfs/internal/inomap"
-	"github.com/rfjakob/gocryptfs/internal/nametransform"
+	"github.com/HorizonLiu/gocryptfs/internal/configfile"
+	"github.com/HorizonLiu/gocryptfs/internal/inomap"
+	"github.com/HorizonLiu/gocryptfs/internal/nametransform"
 )
 
 const (
