@@ -3,6 +3,7 @@ module github.com/HorizonLiu/gocryptfs
 go 1.13
 
 require (
+	github.com/HorizonLiu/eme v0.0.0-20210601050809-0574c832dde8
 	github.com/hanwen/go-fuse v1.0.0
 	github.com/hanwen/go-fuse/v2 v2.1.1-0.20210508151621-62c5aa1919a7
 	github.com/jacobsa/crypto v0.0.0-20190317225127-9f44e2d11115
