@@ -45,7 +45,7 @@ type AfterUnmounter interface {
 
 // doMount mounts an encrypted directory.
 // Called from main.
-func doMount(args *argContainer) {
+func doMount(args *argContainer, password string) {
 	// Check mountpoint
 	var err error
 	args.mountpoint, err = filepath.Abs(flagSet.Arg(1))
@@ -122,7 +122,7 @@ func doMount(args *argContainer) {
 	// We cannot use JSON for pretty-printing as the fields are unexported
 	tlog.Debug.Printf("cli args: %#v", args)
 	// Initialize gocryptfs (read config file, ask for password, ...)
-	fs, wipeKeys := initFuseFrontend(args)
+	fs, wipeKeys := initFuseFrontend(args, password)
 	// Try to wipe secret keys from memory after unmount
 	defer wipeKeys()
 	// Initialize go-fuse FUSE server
@@ -245,7 +245,7 @@ func setOpenFileLimit() {
 
 // initFuseFrontend - initialize gocryptfs/internal/fusefrontend
 // Calls os.Exit on errors
-func initFuseFrontend(args *argContainer) (rootNode fs.InodeEmbedder, wipeKeys func()) {
+func initFuseFrontend(args *argContainer, password string) (rootNode fs.InodeEmbedder, wipeKeys func()) {
 	var err error
 	var confFile *configfile.ConfFile
 	// Get the masterkey from the command line if it was specified
@@ -253,7 +253,7 @@ func initFuseFrontend(args *argContainer) (rootNode fs.InodeEmbedder, wipeKeys f
 	// Otherwise, load masterkey from config file (normal operation).
 	// Prompts the user for the password.
 	if masterkey == nil {
-		masterkey, confFile, err = loadConfig(args)
+		masterkey, confFile, err = loadConfig(args, password)
 		if err != nil {
 			if args._ctlsockFd != nil {
 				// Close the socket file (which also deletes it)

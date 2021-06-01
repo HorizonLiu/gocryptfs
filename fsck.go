@@ -254,7 +254,7 @@ func (ck *fsckObj) xattrs(relPath string) {
 }
 
 // entrypoint from main()
-func fsck(args *argContainer) (exitcode int) {
+func fsck(args *argContainer, password string) (exitcode int) {
 	if args.reverse {
 		tlog.Fatal.Printf("Running -fsck with -reverse is not supported")
 		os.Exit(exitcodes.Usage)
@@ -266,7 +266,7 @@ func fsck(args *argContainer) (exitcode int) {
 		tlog.Fatal.Printf("fsck: TmpDir: %v", err)
 		os.Exit(exitcodes.MountPoint)
 	}
-	pfs, wipeKeys := initFuseFrontend(args)
+	pfs, wipeKeys := initFuseFrontend(args, password)
 	rn := pfs.(*fusefrontend.RootNode)
 	rn.MitigatedCorruptions = make(chan string)
 	ck := fsckObj{

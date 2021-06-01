@@ -38,7 +38,7 @@ var raceDetector bool
 
 // loadConfig loads the config file `args.config` and decrypts the masterkey,
 // or gets via the `-masterkey` or `-zerokey` command line options, if specified.
-func loadConfig(args *argContainer) (masterkey []byte, cf *configfile.ConfFile, err error) {
+func loadConfig(args *argContainer, password string) (masterkey []byte, cf *configfile.ConfFile, err error) {
 	// First check if the file can be read at all.
 	cf, err = configfile.Load(args.config)
 	if err != nil {
@@ -59,7 +59,11 @@ func loadConfig(args *argContainer) (masterkey []byte, cf *configfile.ConfFile, 
 		}
 		pw = fido2.Secret(args.fido2, cf.FIDO2.CredentialID, cf.FIDO2.HMACSalt)
 	} else {
-		pw = readpassword.Once([]string(args.extpass), []string(args.passfile), "")
+		// 默认使用这个方法读取到密码
+		//pw = readpassword.Once([]string(args.extpass), []string(args.passfile), "")
+
+		// 重写密码读取方式，直接从参数中传入
+		pw = []byte(password)
 	}
 	tlog.Info.Println("Decrypting master key")
 	masterkey, err = cf.DecryptMasterKey(pw)
@@ -76,12 +80,12 @@ func loadConfig(args *argContainer) (masterkey []byte, cf *configfile.ConfFile, 
 
 // changePassword - change the password of config file "filename"
 // Does not return (calls os.Exit both on success and on error).
-func changePassword(args *argContainer) {
+func changePassword(args *argContainer, password string) {
 	var confFile *configfile.ConfFile
 	{
 		var masterkey []byte
 		var err error
-		masterkey, confFile, err = loadConfig(args)
+		masterkey, confFile, err = loadConfig(args, password)
 		if err != nil {
 			exitcodes.Exit(err)
 		}
@@ -149,7 +153,7 @@ func printVersion() {
 		runtime.GOOS, runtime.GOARCH)
 }
 
-func doMain(cmd []string) {
+func doMain(cmd []string, password string) {
 	mxp := runtime.GOMAXPROCS(0)
 	if mxp < 4 && os.Getenv("GOMAXPROCS") == "" {
 		// On a 2-core machine, setting maxprocs to 4 gives 10% better performance.
@@ -300,7 +304,7 @@ func doMain(cmd []string) {
 			tlog.Fatal.Printf("Usage: %s [OPTIONS] CIPHERDIR MOUNTPOINT [-o COMMA-SEPARATED-OPTIONS]", tlog.ProgramName)
 			os.Exit(exitcodes.Usage)
 		}
-		doMount(&args)
+		doMount(&args, password)
 		// Don't call os.Exit to give deferred functions a chance to run
 		return
 	}
@@ -325,12 +329,12 @@ func doMain(cmd []string) {
 	}
 	// "-passwd"
 	if args.passwd {
-		changePassword(&args)
+		changePassword(&args, password)
 		os.Exit(0)
 	}
 	// "-fsck"
 	if args.fsck {
-		code := fsck(&args)
+		code := fsck(&args, password)
 		os.Exit(code)
 	}
 }
