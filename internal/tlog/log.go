@@ -167,17 +167,17 @@ func SwitchLoggerToSyslog() {
 // PrintMasterkeyReminder reminds the user that he should store the master key in
 // a safe place.
 func PrintMasterkeyReminder(key []byte) {
-	//if !Info.Enabled {
-	//	// Quiet mode
-	//	fmt.Println("mount dir as quiet mode, suppressing master key display")
-	//	return
-	//}
-	//if !terminal.IsTerminal(int(os.Stdout.Fd())) {
-	//	fmt.Println("Not running on a terminal, suppressing master key display")
-	//	// We don't want the master key to end up in a log file
-	//	Info.Printf("Not running on a terminal, suppressing master key display\n")
-	//	return
-	//}
+	if !Info.Enabled {
+		// Quiet mode
+		fmt.Println("mount dir as quiet mode, suppressing master key display")
+		return
+	}
+	if !terminal.IsTerminal(int(os.Stdout.Fd())) {
+		fmt.Println("Not running on a terminal, suppressing master key display")
+		// We don't want the master key to end up in a log file
+		Info.Printf("Not running on a terminal, suppressing master key display\n")
+		return
+	}
 	h := hex.EncodeToString(key)
 	var hChunked string
 	// Try to make it less scary by splitting it up in chunks
