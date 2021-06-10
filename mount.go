@@ -175,7 +175,8 @@ func doMount(args *argContainer, password string) {
 		go idleMonitor(args.idle, fwdFs, srv, args.mountpoint)
 	}
 	// Wait for unmount.
-	srv.Wait()
+	// 关闭等待
+	//srv.Wait()
 }
 
 // Based on the EncFS idle monitor:
