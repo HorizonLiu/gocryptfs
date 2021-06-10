@@ -134,10 +134,13 @@ func doMount(args *argContainer, password string) {
 	tlog.Info.Println(tlog.ColorGreen + "Filesystem mounted and ready." + tlog.ColorReset)
 	// We have been forked into the background, as evidenced by the set
 	// "notifypid".
+	fmt.Println("================args.notifypid: " + string(args.notifypid) + "==================")
 	if args.notifypid > 0 {
+		fmt.Println("======args.notifypid=" + string(args.notifypid) + "> 0====")
 		// Chdir to the root directory so we don't block unmounting the CWD
 		os.Chdir("/")
 		// Switch to syslog
+		fmt.Println("args.nosyslog:", args.nosyslog)
 		if !args.nosyslog {
 			// Switch all of our logs and the generic logger to syslog
 			tlog.Info.SwitchToSyslog(syslog.LOG_USER | syslog.LOG_INFO)
@@ -164,7 +167,11 @@ func doMount(args *argContainer, password string) {
 	// Wait for SIGINT in the background and unmount ourselves if we get it.
 	// This prevents a dangling "Transport endpoint is not connected"
 	// mountpoint if the user hits CTRL-C.
-	handleSigint(srv, args.mountpoint)
+
+	// horizonliu注释
+	fmt.Println("============not wait signal=============")
+	//handleSigint(srv, args.mountpoint)
+
 	// Return memory that was allocated for scrypt (64M by default!) and other
 	// stuff that is no longer needed to the OS
 	debug.FreeOSMemory()
@@ -176,6 +183,7 @@ func doMount(args *argContainer, password string) {
 	}
 	// Wait for unmount.
 	// 关闭等待
+	fmt.Println("close srv.wait(), return")
 	//srv.Wait()
 }
 
