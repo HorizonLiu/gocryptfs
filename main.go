@@ -174,10 +174,10 @@ func doMain(cmd []string, password string) {
 	// Fork a child into the background if "-fg" is not set AND we are mounting
 	// a filesystem. The child will do all the work.
 	fmt.Println(args.fg, flagSet.NArg())
-	if !args.fg && flagSet.NArg() == 2 {
-		ret := forkChild()
-		os.Exit(ret)
-	}
+	//if !args.fg && flagSet.NArg() == 2 {
+	//	ret := forkChild()
+	//	os.Exit(ret)
+	//}
 	if args.debug {
 		tlog.Debug.Enabled = true
 	}
