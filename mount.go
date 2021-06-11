@@ -168,8 +168,9 @@ func doMount(args *argContainer, password string) {
 	// This prevents a dangling "Transport endpoint is not connected"
 	// mountpoint if the user hits CTRL-C.
 
-	fmt.Println("============handleSigint: 监听信号，若监听到执行umount并退出进程=============")
-	handleSigint(srv, args.mountpoint)
+	fmt.Println("关闭handleSigint()")
+	//fmt.Println("============handleSigint: 监听信号，若监听到执行umount并退出进程=============")
+	//handleSigint(srv, args.mountpoint)
 
 	// Return memory that was allocated for scrypt (64M by default!) and other
 	// stuff that is no longer needed to the OS
@@ -183,8 +184,9 @@ func doMount(args *argContainer, password string) {
 	}
 	// Wait for unmount.
 	// 关闭等待
-	fmt.Println("srv.wait(), 进程挂起，等待执行umount命令")
-	srv.Wait()
+	fmt.Println("取消进程挂起srv.Wait()")
+	//fmt.Println("srv.wait(), 进程挂起，等待执行umount命令")
+	//srv.Wait()
 }
 
 // Based on the EncFS idle monitor:
