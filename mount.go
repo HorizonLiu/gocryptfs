@@ -176,6 +176,7 @@ func doMount(args *argContainer, password string) {
 	// stuff that is no longer needed to the OS
 	debug.FreeOSMemory()
 	// Set up autounmount, if requested.
+	fmt.Print("==============args.idle:", args.idle, ".if args.idle>0, Auto-unmount after specified idle duration (ignored in reverse mode).==========================")
 	if args.idle > 0 && !args.reverse {
 		// Not being in reverse mode means we always have a forward file system.
 		fwdFs := fs.(*fusefrontend.RootNode)
