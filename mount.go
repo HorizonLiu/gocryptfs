@@ -168,9 +168,8 @@ func doMount(args *argContainer, password string) {
 	// This prevents a dangling "Transport endpoint is not connected"
 	// mountpoint if the user hits CTRL-C.
 
-	// horizonliu注释
-	fmt.Println("============not wait signal=============")
-	//handleSigint(srv, args.mountpoint)
+	fmt.Println("============handleSigint: 监听umount信号，若监听到执行umount=============")
+	handleSigint(srv, args.mountpoint)
 
 	// Return memory that was allocated for scrypt (64M by default!) and other
 	// stuff that is no longer needed to the OS
@@ -184,8 +183,8 @@ func doMount(args *argContainer, password string) {
 	}
 	// Wait for unmount.
 	// 关闭等待
-	fmt.Println("close srv.wait(), return")
-	//srv.Wait()
+	fmt.Println("srv.wait(), 进程挂起，等待执行umount命令")
+	srv.Wait()
 }
 
 // Based on the EncFS idle monitor:

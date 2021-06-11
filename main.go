@@ -173,11 +173,12 @@ func doMain(cmd []string, password string) {
 	args := parseCliOptsDiy(cmd)
 	// Fork a child into the background if "-fg" is not set AND we are mounting
 	// a filesystem. The child will do all the work.
+	// 若传入-fg参数，或者执行mount操作，将会fork子进程去执行
 	fmt.Println(args.fg, flagSet.NArg())
-	//if !args.fg && flagSet.NArg() == 2 {
-	//	ret := forkChild()
-	//	os.Exit(ret)
-	//}
+	if !args.fg && flagSet.NArg() == 2 {
+		ret := forkChild()
+		os.Exit(ret)
+	}
 	if args.debug {
 		tlog.Debug.Enabled = true
 	}
