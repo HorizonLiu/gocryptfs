@@ -517,8 +517,8 @@ func handleSigint(srv *fuse.Server, mountpoint string) {
 	signal.Notify(ch, os.Interrupt)
 	signal.Notify(ch, syscall.SIGTERM)
 	go func() {
-		fmt.Println("接收到SIGTERM或syscall.SIGINT信号，执行umount，并退出进程")
 		<-ch
+		fmt.Println("接收到SIGTERM或syscall.SIGINT信号，执行umount，并退出进程")
 		unmount(srv, mountpoint)
 		os.Exit(exitcodes.SigInt)
 	}()
