@@ -168,7 +168,7 @@ func doMount(args *argContainer, password string) {
 	// This prevents a dangling "Transport endpoint is not connected"
 	// mountpoint if the user hits CTRL-C.
 
-	fmt.Println("============handleSigint: 监听umount信号，若监听到执行umount=============")
+	fmt.Println("============handleSigint: 监听信号，若监听到执行umount并退出进程=============")
 	handleSigint(srv, args.mountpoint)
 
 	// Return memory that was allocated for scrypt (64M by default!) and other
@@ -517,6 +517,7 @@ func handleSigint(srv *fuse.Server, mountpoint string) {
 	signal.Notify(ch, os.Interrupt)
 	signal.Notify(ch, syscall.SIGTERM)
 	go func() {
+		fmt.Println("接收到SIGTERM或syscall.SIGINT信号，执行umount，并退出进程")
 		<-ch
 		unmount(srv, mountpoint)
 		os.Exit(exitcodes.SigInt)
@@ -526,6 +527,7 @@ func handleSigint(srv *fuse.Server, mountpoint string) {
 // unmount() calls srv.Unmount(), and if that fails, calls "fusermount -u -z"
 // (lazy unmount).
 func unmount(srv *fuse.Server, mountpoint string) {
+	fmt.Println("执行umount")
 	err := srv.Unmount()
 	if err != nil {
 		tlog.Warn.Printf("unmount: srv.Unmount returned %v", err)
